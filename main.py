@@ -11,7 +11,7 @@ import time
 from vector_manager import VectorManager
 
 
-course_id = 67599 #calc multi, curso antiguo
+course_id = 73839 #calc multi, curso antiguo
 
 #init classes
 sorter = Sorter()
@@ -40,7 +40,7 @@ print("\n--- PHASE 1: INGESTING EXAMS & BUILDING DATABASE ---")
 guides_queue = []
 valid_counter = 0
 for file in tqdm(files, desc="Processing Canvas Files"):
-    if valid_counter >= 30:    #counter para limitar archivos
+    if valid_counter >= 1:    #counter para limitar archivos
         break
     
     if file.folder_id != setup_id:  #filtrar junk
@@ -92,7 +92,8 @@ for file in tqdm(files, desc="Processing Canvas Files"):
             print("Unknown document type, skipping")
 
 
-#-----------------------COMPARING LOOP-----------------------
+
+#-----------------------PHASE 2: ANALYZING GUIDES AGAINST DATABASE-----------------------
 #SEARCHES THE DB FOR SIMILAR STRATEGIES
 print("\n--- PHASE 2: ANALYZING GUIDES AGAINST DATABASE ---")
 

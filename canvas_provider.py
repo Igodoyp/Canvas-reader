@@ -99,6 +99,11 @@ class CanvasProvider:
                 break
         return setup_folder_id
 
+    def get_course_folders(self, course_id: int):
+        """Su único trabajo es ir a Canvas y traer las carpetas del curso"""
+        course = self.canvas.get_course(course_id)
+        return course.get_folders()
+
 
 # ---------------------- SIMPLE TEST ----------------------
 if __name__ == "__main__":
